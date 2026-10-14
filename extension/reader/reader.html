@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>petty: Reader</title>
+<link rel="icon" href="../icons/32.png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="reader.css">
+<script type="module" src="main.js"></script>
+</head>
+<body>
+<div class="room">
+  <header class="bar">
+    <a class="brand" href="https://github.com/petty-foss-dev/Petty-Reader" target="_blank" rel="noopener" title="petty: Reader is free and open source">
+      <span class="petty-mark" aria-hidden="true">p:</span><span class="brand-name">Reader</span>
+    </a>
+    <div class="bar-title" id="bar-title"></div>
+    <div class="bar-actions">
+      <a class="icon-btn" id="source-link" target="_blank" rel="noopener" title="Open the original page" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </a>
+      <button class="icon-btn" id="pdf-btn" type="button" title="Open a PDF file">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5M9 13h6M9 17h4"/></svg>
+      </button>
+      <button class="icon-btn" id="night-btn" type="button" title="Night light (N)" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+      <button class="icon-btn" id="settings-btn" type="button" title="Settings (S)" aria-expanded="false" aria-controls="panel">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <div class="book two-up" id="book" data-state="closed" hidden>
+      <div class="page page-left"></div>
+      <div class="page page-right"></div>
+      <div class="leaf" hidden><div class="page face front"></div><div class="page face back"></div></div>
+      <div class="cover" role="button" tabindex="0" aria-label="Open the book">
+        <div class="cover-front"><div class="cover-art" id="cover-art"></div></div>
+        <div class="cover-back"></div>
+      </div>
+    </div>
+    <div class="status" id="status" role="status">
+      <span class="petty-mark big" aria-hidden="true">p:</span>
+      <h1 id="status-title">Opening your book…</h1>
+      <p id="status-text"></p>
+      <div class="status-actions" id="status-actions"></div>
+    </div>
+  </main>
+
+  <footer class="nav" id="nav" hidden>
+    <button class="icon-btn" id="prev-btn" type="button" title="Previous page (←)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <input type="range" id="slider" min="0" max="0" value="0" aria-label="Jump to page">
+    <span class="page-label" id="page-label"></span>
+    <button class="icon-btn" id="next-btn" type="button" title="Next page (→)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </footer>
+
+  <button class="coffee" id="coffee" type="button" title="Take a sip" hidden>
+    <svg viewBox="0 0 140 120" aria-hidden="true">
+      <defs>
+        <clipPath id="cup-mouth"><ellipse cx="62" cy="40" rx="33" ry="10"/></clipPath>
+        <linearGradient id="cup-body" x1="0" x2="1">
+          <stop offset="0" stop-color="#DDE9EA"/><stop offset=".45" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B9CDD0"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="66" cy="104" rx="58" ry="12" fill="#00000033"/>
+      <ellipse cx="66" cy="100" rx="56" ry="12" fill="#F2F5F5"/>
+      <ellipse cx="66" cy="99" rx="34" ry="6" fill="#D9E3E4"/>
+      <path d="M95 50c18-3 24 6 23 15-1 11-12 17-26 15" fill="none" stroke="#C8D8DA" stroke-width="7"/>
+      <path d="M29 40h66v38c0 12-15 20-33 20S29 90 29 78z" fill="url(#cup-body)"/>
+      <rect x="29" y="58" width="66" height="9" fill="#0F7A8A"/>
+      <ellipse cx="62" cy="40" rx="33" ry="10" fill="#E6EEEF"/>
+      <g clip-path="url(#cup-mouth)">
+        <ellipse cx="62" cy="40" rx="33" ry="10" fill="#C9D6D8"/>
+        <g id="coffee-level"><ellipse cx="62" cy="42" rx="31" ry="9" fill="#5A3519"/><ellipse cx="56" cy="40" rx="12" ry="3" fill="#7A4C29" opacity=".7"/></g>
+      </g>
+      <ellipse cx="62" cy="40" rx="33" ry="10" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+      <g class="steam" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round">
+        <path d="M50 30c-6-7 6-11 0-19"/><path d="M63 28c-6-8 6-12 0-21"/><path d="M76 30c-6-7 6-11 0-19"/>
+      </g>
+    </svg>
+    <span class="prop-label" id="coffee-label">Sip</span>
+  </button>
+
+  <div class="turntable" id="turntable">
+    <div class="record-card" id="record-card" hidden>
+      <div class="record-video" id="record-video"></div>
+      <form class="record-form" id="record-form">
+        <input type="url" id="record-input" placeholder="Paste a YouTube link" aria-label="YouTube link">
+        <button type="submit">Play</button>
+      </form>
+    </div>
+    <button class="turntable-btn" id="turntable-btn" type="button" title="Record player">
+      <svg viewBox="0 0 160 120" aria-hidden="true">
+        <rect x="6" y="10" width="148" height="104" rx="12" fill="#00000033"/>
+        <rect x="4" y="6" width="148" height="104" rx="12" fill="#6B4428"/>
+        <rect x="8" y="10" width="140" height="96" rx="9" fill="#7E5232"/>
+        <circle cx="66" cy="58" r="44" fill="#2A2A2A"/>
+        <g class="record">
+          <circle cx="66" cy="58" r="41" fill="#141414"/>
+          <circle cx="66" cy="58" r="35" fill="none" stroke="#2C2C2C" stroke-width="1.2"/>
+          <circle cx="66" cy="58" r="29" fill="none" stroke="#2C2C2C" stroke-width="1.2"/>
+          <circle cx="66" cy="58" r="23" fill="none" stroke="#2C2C2C" stroke-width="1.2"/>
+          <path d="M40 34a36 36 0 0 1 22-10" stroke="#ffffff22" stroke-width="3" fill="none"/>
+          <circle cx="66" cy="58" r="15" fill="#0F7A8A"/>
+          <text x="58" y="63" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="-1">p:</text>
+          <circle cx="66" cy="58" r="2" fill="#D9D9D9"/>
+        </g>
+        <circle cx="132" cy="24" r="8" fill="#B7B7B7"/>
+        <g class="tonearm"><path d="M132 24 L128 74 L112 92" stroke="#D2D2D2" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="104" y="88" width="14" height="8" rx="2" fill="#3B3B3B" transform="rotate(-40 111 92)"/></g>
+        <circle cx="138" cy="96" r="5" fill="#2A2A2A"/>
+      </svg>
+      <span class="prop-label" id="turntable-label">Records</span>
+    </button>
+  </div>
+</div>
+
+<aside class="panel" id="panel" aria-label="Reader settings" hidden>
+  <header class="panel-head">
+    <h2>Settings</h2>
+    <button class="icon-btn" id="panel-close" type="button" title="Close (Esc)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </header>
+
+  <section>
+    <h3>Book</h3>
+    <label class="field-label">Cover</label>
+    <div class="chips" data-setting="cover" data-options="covers"></div>
+    <label class="field-label">Paper</label>
+    <div class="swatches" data-setting="paper" data-options="papers"></div>
+  </section>
+
+  <section>
+    <h3>Type</h3>
+    <div class="fonts" data-setting="font" data-options="fonts"></div>
+    <label class="field-label" for="font-size">Size <output id="font-size-out"></output></label>
+    <input type="range" id="font-size" data-setting="fontSize" min="13" max="28" step="1">
+    <label class="field-label" for="line-height">Line spacing <output id="line-height-out"></output></label>
+    <input type="range" id="line-height" data-setting="lineHeight" min="1.25" max="2" step="0.05">
+    <label class="field-label">Margins</label>
+    <div class="seg" data-setting="margins">
+      <button type="button" data-value="narrow">Narrow</button><button type="button" data-value="normal">Normal</button><button type="button" data-value="wide">Wide</button>
+    </div>
+  </section>
+
+  <section>
+    <h3>Comfort</h3>
+    <label class="switch"><input type="checkbox" data-setting="nightLight"><span>Night light</span></label>
+    <label class="field-label" for="warmth">Warmth</label>
+    <input type="range" id="warmth" data-setting="warmth" min="0.1" max="1" step="0.05">
+    <label class="switch"><input type="checkbox" data-setting="savePlace"><span>Remember my place</span></label>
+    <button class="text-btn" id="forget-place" type="button">Forget my place in this book</button>
+  </section>
+
+  <section>
+    <h3>Sound</h3>
+    <label class="field-label">Page turns</label>
+    <div class="seg" data-setting="turnSound">
+      <button type="button" data-value="off">Off</button><button type="button" data-value="paper">Crisp paper</button><button type="button" data-value="hardcover">Hardcover</button>
+    </div>
+    <label class="field-label">Ambience</label>
+    <div class="chips" data-setting="ambience">
+      <button type="button" data-value="off">Off</button><button type="button" data-value="lofi">Lo-fi</button><button type="button" data-value="rain">Rain</button><button type="button" data-value="forest">Forest</button><button type="button" data-value="cafe">Coffee shop</button>
+    </div>
+    <label class="field-label" for="volume">Volume</label>
+    <input type="range" id="volume" data-setting="volume" min="0" max="1" step="0.05">
+  </section>
+
+  <section>
+    <h3>Desk</h3>
+    <label class="switch"><input type="checkbox" data-setting="coffee"><span>Coffee cup</span></label>
+    <label class="field-label" for="record-url">Record player</label>
+    <input type="url" id="record-url" data-setting="recordUrl" placeholder="YouTube link to play on the desk">
+    <p class="hint">YouTube only loads when you press play on the record player.</p>
+  </section>
+
+  <footer class="panel-foot">
+    <p><strong>Every feature is free.</strong> No license key, no account, nothing leaves your browser.</p>
+    <p><a href="https://github.com/petty-foss-dev/Petty-Reader" target="_blank" rel="noopener">Source on GitHub</a> · <a href="https://envemedia.com/petty/" target="_blank" rel="noopener">More Petty apps</a></p>
+  </footer>
+</aside>
+
+<div class="night" id="night" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="measure" aria-hidden="true"><div class="page-body" id="measure"></div></div>
+<input type="file" id="file-input" accept="application/pdf,.pdf" hidden>
+</body>
+</html>
