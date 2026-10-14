@@ -54,14 +54,20 @@ This is part of the [Petty FOSS](https://envemedia.com/petty/) family. It's an i
 
 ## Install
 
-petty: Reader isn't in the Chrome Web Store yet. To install it from source:
+petty: Reader isn't in the Chrome Web Store yet, so you add it to Chrome yourself. It takes about two minutes, and you only do it once.
 
-1. Download or clone this repository.
-2. Open `chrome://extensions` and turn on **Developer mode**.
-3. Click **Load unpacked** and choose the `extension` folder.
-4. Pin petty: Reader to the toolbar.
+1. **Download it.** [Download the ZIP](https://github.com/petty-foss-dev/Petty-Reader/archive/refs/heads/main.zip). You'll get `Petty-Reader-main.zip`.
+2. **Unzip it somewhere it can stay.** On a Mac, double-click the ZIP. On Windows, right-click it and choose **Extract All**. Move the `Petty-Reader-main` folder somewhere permanent, like Documents. Chrome runs the extension from this folder, so if you delete it, the extension stops working.
+3. **Open Chrome's extensions page.** Type `chrome://extensions` in the address bar and press Enter, or open the **⋮** menu and choose **Extensions → Manage Extensions**.
+4. **Turn on Developer mode** with the switch in the top-right corner.
+5. **Load it.** Click **Load unpacked**, open the `Petty-Reader-main` folder, select the `extension` folder inside it, and click **Select**.
+6. **Pin it.** Click the puzzle-piece icon next to the address bar, then the pin next to **petty: Reader**.
 
-It also works in Edge, Brave, Arc, and other Chromium browsers.
+It works the same way in Edge (`edge://extensions`), Brave (`brave://extensions`), Arc, and other Chromium browsers.
+
+**Updating:** download the ZIP again, replace your old `Petty-Reader-main` folder with the new one in the same place, then click the circular reload arrow on the petty: Reader card at `chrome://extensions`. Your settings and saved places stay put.
+
+There's also a step-by-step page at [envemedia.com/petty/reader](https://envemedia.com/petty/reader/).
 
 ## Use it
 
