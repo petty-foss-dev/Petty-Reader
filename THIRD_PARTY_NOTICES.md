@@ -15,4 +15,4 @@ The font files come from the [Fontsource](https://fontsource.org) packages (lati
 
 All sounds (ambience, page turns, coffee) are synthesized in `extension/reader/audio.js`. There are no audio files.
 
-The README screenshots use Henry David Thoreau's essay "Walking" from [Project Gutenberg](https://www.gutenberg.org/ebooks/1022), which is in the public domain in the United States.
+The README screenshots use Henry David Thoreau's essay "Walking" from [Project Gutenberg](https://www.gutenberg.org/ebooks/1022), which is in the public domain in the United States. The record player screenshot shows [Big Buck Bunny](https://peach.blender.org/), © Blender Foundation, licensed [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).

@@ -23,11 +23,19 @@ This is part of the [Petty FOSS](https://envemedia.com/petty/) family. It's an i
 <table>
   <tr>
     <th>Start with a closed book</th>
-    <th>Read in spreads</th>
+    <th>Open the cover to a title page</th>
   </tr>
   <tr>
     <td><img src="docs/screenshots/cover.png" alt="An article shown as a clothbound book on a wooden desk, with a coffee cup and a record player"></td>
+    <td><img src="docs/screenshots/title-page.png" alt="The open book showing marbled endpapers and a title page with the author, date, and reading time"></td>
+  </tr>
+  <tr>
+    <th>Read in spreads</th>
+    <th>Turn the page</th>
+  </tr>
+  <tr>
     <td><img src="docs/screenshots/reading.png" alt="A two-page spread with running heads and page numbers"></td>
+    <td><img src="docs/screenshots/page-turn.png" alt="A page caught mid-turn, curling over the spine"></td>
   </tr>
   <tr>
     <th>Pick your fonts and paper</th>
@@ -36,6 +44,22 @@ This is part of the [Petty FOSS](https://envemedia.com/petty/) family. It's an i
   <tr>
     <td><img src="docs/screenshots/settings.png" alt="Settings panel with cover styles, paper colors, fonts, and sound options"></td>
     <td><img src="docs/screenshots/night-light.png" alt="Sepia pages under the warm night light"></td>
+  </tr>
+  <tr>
+    <th>Or go dark</th>
+    <th>PDFs read the same way</th>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/night-paper.png" alt="The book on Night paper, with light text on near-black pages"></td>
+    <td><img src="docs/screenshots/pdf.png" alt="A text PDF reflowed into a two-page spread, with its running headers and page numbers removed"></td>
+  </tr>
+  <tr>
+    <th>Put a record on</th>
+    <th>One page at a time in narrow windows</th>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/desk.png" alt="The record player playing a YouTube video in a small card above the turntable, next to the open book"></td>
+    <td align="center"><img src="docs/screenshots/single-page.png" width="320" alt="A single page filling a narrow browser window"></td>
   </tr>
 </table>
 
